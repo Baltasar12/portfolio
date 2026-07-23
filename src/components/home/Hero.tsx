@@ -5,6 +5,7 @@ import { Typography } from "@/components/ui/Typography"
 import { Button, buttonVariants } from "@/components/ui/Button"
 import { Section } from "@/components/layout/Section"
 import Link from "next/link"
+import { handleSmoothScroll } from "@/lib/scroll"
 
 export function Hero() {
   return (
@@ -37,9 +38,9 @@ export function Hero() {
           <Link href="/experience" className={buttonVariants({ variant: "primary", size: "lg" })}>
             View Experience
           </Link>
-          <Link href="#case-studies" className={buttonVariants({ variant: "secondary", size: "lg" })}>
+          <a href="#case-studies" onClick={handleSmoothScroll} className={buttonVariants({ variant: "secondary", size: "lg" })}>
             Read Case Studies
-          </Link>
+          </a>
         </div>
       </motion.div>
     </Section>

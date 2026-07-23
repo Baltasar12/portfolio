@@ -5,6 +5,7 @@ import { Section } from "@/components/layout/Section"
 import { SectionHeader } from "@/components/ui/SectionHeader"
 import { Typography } from "@/components/ui/Typography"
 import { ArrowRight } from "lucide-react"
+import { handleSmoothScroll } from "@/lib/scroll"
 
 const articles = [
   {
@@ -37,6 +38,7 @@ export function LatestArticles() {
           <motion.a
             key={i}
             href={`#article-${i}`}
+            onClick={handleSmoothScroll}
             initial={{ opacity: 0, x: -10 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -60,7 +62,7 @@ export function LatestArticles() {
         ))}
         
         <div className="pt-8">
-          <a href="#all-articles" className="inline-flex items-center text-[var(--color-primary)] font-medium underline-offset-4 hover:underline">
+          <a href="#all-articles" onClick={handleSmoothScroll} className="inline-flex items-center text-[var(--color-primary)] font-medium underline-offset-4 hover:underline">
             View all articles <ArrowRight className="ml-2 h-4 w-4" />
           </a>
         </div>

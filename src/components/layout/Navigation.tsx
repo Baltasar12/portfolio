@@ -5,11 +5,13 @@ import { Typography } from "@/components/ui/Typography"
 import { Button } from "@/components/ui/Button"
 import { ThemeToggle } from "@/components/ui/ThemeToggle"
 
+import { handleSmoothScroll } from "@/lib/scroll"
+
 const SHOW_ARTICLES = false;
 
 export function Navigation() {
   const { scrollY } = useScroll()
-  
+
   // Fade in background and border when scrolled
   const bgOpacity = useTransform(scrollY, [0, 50], [0, 0.8])
   const borderOpacity = useTransform(scrollY, [0, 50], [0, 1])
@@ -18,7 +20,7 @@ export function Navigation() {
   const borderBottom = useMotionTemplate`1px solid rgba(var(--border-rgb), ${borderOpacity})`
 
   return (
-    <motion.header 
+    <motion.header
       className="fixed top-0 left-0 right-0 z-50 h-16 sm:h-20 flex items-center px-6 md:px-12 backdrop-blur-md transition-colors duration-200"
       style={{
         backgroundColor,
@@ -31,11 +33,11 @@ export function Navigation() {
         </Typography>
 
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="#experience" className="text-sm font-medium text-secondary hover:text-primary transition-colors">Experience</a>
-          <a href="#case-studies" className="text-sm font-medium text-secondary hover:text-primary transition-colors">Case Studies</a>
-          <a href="#approach" className="text-sm font-medium text-secondary hover:text-primary transition-colors">Approach</a>
+          <a href="#experience" onClick={handleSmoothScroll} className="text-sm font-medium text-secondary hover:text-primary transition-colors">Experience</a>
+          <a href="#case-studies" onClick={handleSmoothScroll} className="text-sm font-medium text-secondary hover:text-primary transition-colors">Case Studies</a>
+          <a href="#approach" onClick={handleSmoothScroll} className="text-sm font-medium text-secondary hover:text-primary transition-colors">Approach</a>
           {SHOW_ARTICLES && (
-            <a href="#articles" className="text-sm font-medium text-secondary hover:text-primary transition-colors">Articles</a>
+            <a href="#articles" onClick={handleSmoothScroll} className="text-sm font-medium text-secondary hover:text-primary transition-colors">Articles</a>
           )}
         </nav>
 
