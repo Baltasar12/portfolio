@@ -3,7 +3,7 @@ import * as React from "react"
 import { Section } from "@/components/layout/Section"
 import { SectionHeader } from "@/components/ui/SectionHeader"
 import { ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/Button"
+import { buttonVariants } from "@/components/ui/Button"
 import { ExperienceItem } from "@/components/ui/ExperienceItem"
 import Link from "next/link"
 
@@ -53,10 +53,8 @@ export function ExperiencePreview() {
         ))}
         
         <div className="pt-8">
-          <Link href="/experience" passHref legacyBehavior>
-            <Button variant="link" className="group" as="a">
-              View full experience <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
+          <Link href="/experience" className={buttonVariants({ variant: "link", className: "group" })}>
+            View full experience <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
       </div>
