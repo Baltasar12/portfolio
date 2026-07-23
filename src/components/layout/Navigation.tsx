@@ -1,8 +1,9 @@
 "use client"
 import * as React from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { motion, useScroll, useTransform, useMotionTemplate } from "framer-motion"
 import { Typography } from "@/components/ui/Typography"
 import { Button } from "@/components/ui/Button"
+import { ThemeToggle } from "@/components/ui/ThemeToggle"
 
 const SHOW_ARTICLES = false;
 
@@ -10,15 +11,18 @@ export function Navigation() {
   const { scrollY } = useScroll()
   
   // Fade in background and border when scrolled
-  const bgOpacity = useTransform(scrollY, [0, 50], [0, 1])
+  const bgOpacity = useTransform(scrollY, [0, 50], [0, 0.8])
   const borderOpacity = useTransform(scrollY, [0, 50], [0, 1])
+
+  const backgroundColor = useMotionTemplate`rgba(var(--background-rgb), ${bgOpacity})`
+  const borderBottom = useMotionTemplate`1px solid rgba(var(--border-rgb), ${borderOpacity})`
 
   return (
     <motion.header 
-      className="fixed top-0 left-0 right-0 z-50 h-16 sm:h-20 flex items-center px-6 md:px-12 backdrop-blur-md"
+      className="fixed top-0 left-0 right-0 z-50 h-16 sm:h-20 flex items-center px-6 md:px-12 backdrop-blur-md transition-colors duration-200"
       style={{
-        backgroundColor: `rgba(250, 249, 247, ${bgOpacity.get() * 0.8})`, // Warm white with opacity
-        borderBottom: `1px solid rgba(229, 229, 229, ${borderOpacity.get()})`, // border color
+        backgroundColor,
+        borderBottom,
       }}
     >
       <div className="flex items-center justify-between w-full max-w-[1280px] mx-auto">
@@ -35,12 +39,13 @@ export function Navigation() {
           )}
         </nav>
 
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-5">
           <a href="/resume/Baltasar_Barbaglia_FullStack_Developer.pdf" download>
             <Button variant="link" className="hidden sm:inline-flex text-sm text-secondary hover:text-primary">
               Resume
             </Button>
           </a>
+          <ThemeToggle />
           <Button variant="secondary" size="sm" onClick={() => window.dispatchEvent(new Event('open-contact'))}>
             Contact
           </Button>

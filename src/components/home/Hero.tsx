@@ -2,7 +2,7 @@
 import * as React from "react"
 import { motion } from "framer-motion"
 import { Typography } from "@/components/ui/Typography"
-import { Button } from "@/components/ui/Button"
+import { Button, buttonVariants } from "@/components/ui/Button"
 import { Section } from "@/components/layout/Section"
 import Link from "next/link"
 
@@ -34,14 +34,12 @@ export function Hero() {
         </div>
 
         <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
-          <Link href="/experience" passHref legacyBehavior>
-            <Button variant="primary" size="lg" as="a">
-              View Experience
-            </Button>
+          <Link href="/experience" className={buttonVariants({ variant: "primary", size: "lg" })}>
+            View Experience
           </Link>
-          <Button variant="secondary" size="lg">
+          <Link href="#case-studies" className={buttonVariants({ variant: "secondary", size: "lg" })}>
             Read Case Studies
-          </Button>
+          </Link>
         </div>
       </motion.div>
     </Section>

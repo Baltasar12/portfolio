@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --color-background: var(--background);
@@ -20,14 +21,18 @@
 
 :root {
   /* Colors */
-  --background: #faf9f7; /* Warm White */
-  --foreground: #171717; /* Near Black */
-  --surface: #f3f2f0; /* Light Neutral */
-  --primary: #171717; /* Near Black */
-  --secondary: #525252; /* Medium Gray */
-  --muted: #a3a3a3; /* Light Gray */
-  --border: #e5e5e5; /* Thin Neutral Gray */
-  --accent: #ea580c; /* Industrial Orange */
+  --background: #f7f6f2; /* Warm White */
+  --foreground: #111111; /* Near Black */
+  --surface: #ffffff; /* White */
+  --primary: #111111;
+  --secondary: #5f5f5f;
+  --muted: #8a8a8a;
+  --border: #dddddd;
+  --accent: #f97316;
+
+  /* RGB variants for opacity usage (e.g. Navigation) */
+  --background-rgb: 247, 246, 242;
+  --border-rgb: 221, 221, 221;
 
   /* Typography Scale */
   /* Display XXL: Hero headlines */
@@ -63,17 +68,19 @@
   --text-mono--line-height: 1.5;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a; /* True Dark */
-    --foreground: #ededed; /* Near White */
-    --surface: #171717; /* Dark Neutral */
-    --primary: #ededed;
-    --secondary: #a3a3a3;
-    --muted: #525252;
-    --border: #262626;
-    --accent: #f97316;
-  }
+.dark {
+  --background: #0a0a0a; /* True Dark */
+  --foreground: #ededed; /* Near White */
+  --surface: #171717; /* Dark Neutral */
+  --primary: #ededed;
+  --secondary: #a3a3a3;
+  --muted: #525252;
+  --border: #262626;
+  --accent: #f97316;
+
+  /* RGB variants for opacity usage */
+  --background-rgb: 10, 10, 10;
+  --border-rgb: 38, 38, 38;
 }
 
 body {
