@@ -35,7 +35,7 @@ export function Contact() {
                 </div>
                 <div>
                   <Typography variant="heading" className="text-base">Email</Typography>
-                  <Typography variant="small">baltasarbarbaglia@gmail.com</Typography>
+                  <Typography variant="small" className="text-[var(--color-secondary)]">baltasarbarbaglia@gmail.com</Typography>
                 </div>
               </CardContent>
             </Card>
@@ -49,13 +49,13 @@ export function Contact() {
                 </div>
                 <div>
                   <Typography variant="heading" className="text-base">LinkedIn</Typography>
-                  <Typography variant="small">Professional Profile</Typography>
+                  <Typography variant="small" className="text-[var(--color-secondary)]">Professional Profile</Typography>
                 </div>
               </CardContent>
             </Card>
           </a>
           
-          <a href="#github-todo" className="group">
+          <a href="https://github.com/Baltasar12/" target="_blank" rel="noopener noreferrer" className="group">
             <Card className="h-full border-transparent bg-[var(--color-surface)] group-hover:bg-[var(--color-background)] group-hover:border-[var(--color-border)] transition-all">
               <CardContent className="p-6 flex items-center space-x-4">
                 <div className="p-3 bg-[var(--color-background)] rounded-[var(--radius-sm)] text-[var(--color-primary)] group-hover:text-[var(--color-accent)] transition-colors">
@@ -63,13 +63,13 @@ export function Contact() {
                 </div>
                 <div>
                   <Typography variant="heading" className="text-base">GitHub</Typography>
-                  <Typography variant="small">TODO</Typography>
+                  <Typography variant="small" className="text-[var(--color-secondary)]">github.com/Baltasar12</Typography>
                 </div>
               </CardContent>
             </Card>
           </a>
 
-          <a href="#resume-todo" className="group">
+          <a href="/resume/Baltasar_Barbaglia_FullStack_Developer.pdf" download className="group">
             <Card className="h-full border-transparent bg-[var(--color-surface)] group-hover:bg-[var(--color-background)] group-hover:border-[var(--color-border)] transition-all">
               <CardContent className="p-6 flex items-center space-x-4">
                 <div className="p-3 bg-[var(--color-background)] rounded-[var(--radius-sm)] text-[var(--color-primary)] group-hover:text-[var(--color-accent)] transition-colors">
@@ -77,7 +77,7 @@ export function Contact() {
                 </div>
                 <div>
                   <Typography variant="heading" className="text-base">Resume</Typography>
-                  <Typography variant="small">TODO: Download PDF</Typography>
+                  <Typography variant="small" className="text-[var(--color-secondary)]">Download PDF</Typography>
                 </div>
               </CardContent>
             </Card>

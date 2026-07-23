@@ -16,9 +16,8 @@ export function Footer() {
         </div>
 
         <div className="flex space-x-6">
-          <a href="#" className="text-[var(--color-secondary)] hover:text-[var(--color-primary)] transition-colors text-sm font-medium">LinkedIn</a>
-          <a href="#" className="text-[var(--color-secondary)] hover:text-[var(--color-primary)] transition-colors text-sm font-medium">GitHub</a>
-          <a href="#" className="text-[var(--color-secondary)] hover:text-[var(--color-primary)] transition-colors text-sm font-medium">Twitter</a>
+          <a href="https://linkedin.com/in/baltasarbarba/" target="_blank" rel="noopener noreferrer" className="text-[var(--color-secondary)] hover:text-[var(--color-primary)] transition-colors text-sm font-medium">LinkedIn</a>
+          <a href="https://github.com/Baltasar12/" target="_blank" rel="noopener noreferrer" className="text-[var(--color-secondary)] hover:text-[var(--color-primary)] transition-colors text-sm font-medium">GitHub</a>
         </div>
 
       </div>

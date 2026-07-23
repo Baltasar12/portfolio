@@ -4,6 +4,8 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { Typography } from "@/components/ui/Typography"
 import { Button } from "@/components/ui/Button"
 
+const SHOW_ARTICLES = false;
+
 export function Navigation() {
   const { scrollY } = useScroll()
   
@@ -28,14 +30,18 @@ export function Navigation() {
           <a href="#experience" className="text-sm font-medium text-secondary hover:text-primary transition-colors">Experience</a>
           <a href="#case-studies" className="text-sm font-medium text-secondary hover:text-primary transition-colors">Case Studies</a>
           <a href="#approach" className="text-sm font-medium text-secondary hover:text-primary transition-colors">Approach</a>
-          <a href="#articles" className="text-sm font-medium text-secondary hover:text-primary transition-colors">Articles</a>
+          {SHOW_ARTICLES && (
+            <a href="#articles" className="text-sm font-medium text-secondary hover:text-primary transition-colors">Articles</a>
+          )}
         </nav>
 
         <div className="flex items-center space-x-4">
-          <Button variant="link" className="hidden sm:inline-flex text-sm text-secondary hover:text-primary">
-            Resume
-          </Button>
-          <Button variant="secondary" size="sm">
+          <a href="/resume/Baltasar_Barbaglia_FullStack_Developer.pdf" download>
+            <Button variant="link" className="hidden sm:inline-flex text-sm text-secondary hover:text-primary">
+              Resume
+            </Button>
+          </a>
+          <Button variant="secondary" size="sm" onClick={() => window.dispatchEvent(new Event('open-contact'))}>
             Contact
           </Button>
         </div>

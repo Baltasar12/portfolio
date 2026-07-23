@@ -35,11 +35,6 @@ export function EngineeringApproach() {
           </Typography>
         </div>
 
-        <div className="pt-4">
-          <a href="#approach-full" className="inline-flex items-center text-[var(--color-primary)] font-medium underline-offset-4 hover:underline">
-            Read full engineering philosophy <ArrowRight className="ml-2 h-4 w-4" />
-          </a>
-        </div>
       </motion.div>
     </Section>
   )

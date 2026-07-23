@@ -6,6 +6,9 @@ import { FeaturedCaseStudies } from "@/components/home/FeaturedCaseStudies"
 import { EngineeringApproach } from "@/components/home/EngineeringApproach"
 import { LatestArticles } from "@/components/home/LatestArticles"
 import { Contact } from "@/components/home/Contact"
+import { ContactModal } from "@/components/layout/ContactModal"
+
+const SHOW_ARTICLES = false;
 
 export default function Home() {
   return (
@@ -16,10 +19,11 @@ export default function Home() {
         <ExperiencePreview />
         <FeaturedCaseStudies />
         <EngineeringApproach />
-        <LatestArticles />
+        {SHOW_ARTICLES && <LatestArticles />}
         <Contact />
       </main>
       <Footer />
+      <ContactModal />
     </>
   )
 }

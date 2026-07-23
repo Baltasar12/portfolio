@@ -14,24 +14,28 @@ const caseStudies = [
     summary: "Designed an internal automation system capable of upgrading NuGet dependencies across enterprise repositories while integrating AI assistance for complex upgrade scenarios.",
     outcome: "Improved engineering productivity and streamlined enterprise dependency management at scale.",
     tech: ["Azure DevOps", "AI", "NuGet", "CI/CD", "Automation"],
+    type: "INTERNAL DEVELOPER PLATFORM",
   },
   {
     title: "Enterprise Import Pipeline",
     summary: "Implemented support for automatic payer short name generation inside a legacy enterprise import engine while maintaining compatibility with existing validation rules.",
     outcome: "Enhanced legacy system capabilities without breaking existing enterprise validation rules.",
     tech: ["Delphi", "Oracle", "Import Engine", "Enterprise Software"],
+    type: "LEGACY MODERNIZATION",
   },
   {
     title: "AI Code Review Integration",
     summary: "Integrated Devin AI into Azure DevOps pipelines to automate pull request reviews.",
     outcome: "Improved engineering productivity and developer experience during the code review process.",
     tech: ["Devin AI", "Azure DevOps", "Pull Requests"],
+    type: "AI AUTOMATION",
   },
   {
     title: "World Cup Prediction Engine",
     summary: "Designed a prediction platform using statistical models, FastAPI and modern frontend technologies.",
     outcome: "Delivered a scalable prediction engine leveraging machine learning and statistics.",
     tech: ["Python", "FastAPI", "Machine Learning", "Statistics"],
+    type: "PERSONAL PROJECT",
   }
 ]
 
@@ -52,7 +56,7 @@ export function FeaturedCaseStudies() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.4, delay: i * 0.1 }}
           >
-            <Card className="h-full flex flex-col group cursor-pointer border-transparent hover:border-[var(--color-border)]">
+            <Card className="h-full flex flex-col border-transparent hover:border-[var(--color-border)] transition-colors">
               <CardHeader>
                 <CardTitle>{study.title}</CardTitle>
                 <Typography variant="body" className="text-[var(--color-secondary)] pt-2">
@@ -73,8 +77,8 @@ export function FeaturedCaseStudies() {
                     <Badge key={t}>{t}</Badge>
                   ))}
                 </div>
-                <Typography variant="mono" className="text-[var(--color-accent)] inline-flex items-center group-hover:underline">
-                  Read Case Study <ArrowRight className="ml-2 h-4 w-4" />
+                <Typography variant="mono" className="text-[var(--color-accent)] uppercase tracking-wider text-xs font-semibold">
+                  {study.type}
                 </Typography>
               </CardFooter>
             </Card>
