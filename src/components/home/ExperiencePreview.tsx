@@ -1,12 +1,11 @@
 "use client"
 import * as React from "react"
-import { motion } from "framer-motion"
 import { Section } from "@/components/layout/Section"
 import { SectionHeader } from "@/components/ui/SectionHeader"
-import { Typography } from "@/components/ui/Typography"
-import { Badge } from "@/components/ui/Badge"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/Button"
+import { ExperienceItem } from "@/components/ui/ExperienceItem"
+import Link from "next/link"
 
 const timelineData = [
   {
@@ -45,42 +44,20 @@ export function ExperiencePreview() {
       
       <div className="max-w-[800px] flex flex-col space-y-12">
         {timelineData.map((item, index) => (
-          <motion.div 
-            key={index}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.4, delay: index * 0.1 }}
-            className="flex flex-col md:flex-row md:space-x-8 group"
-          >
-            <div className="md:w-[200px] flex flex-col space-y-1 flex-shrink-0 mb-4 md:mb-0 pt-1">
-              <Typography variant="mono" className="text-[var(--color-primary)]">{item.date}</Typography>
-              {item.current && <Badge variant="status" className="w-fit mt-2">Current</Badge>}
-            </div>
-            
-            <div className="flex flex-col space-y-3">
-              <div>
-                <Typography variant="heading" as="h3">{item.role}</Typography>
-                <Typography variant="body" className="text-[var(--color-secondary)]">{item.company}</Typography>
-              </div>
-              
-              <Typography variant="body" className="text-[var(--color-secondary)] max-w-[550px]">
-                {item.description}
-              </Typography>
-              
-              <div className="flex flex-wrap gap-2 pt-2">
-                {item.tech.map((tech) => (
-                  <Badge key={tech} variant="default">{tech}</Badge>
-                ))}
-              </div>
-            </div>
-          </motion.div>
+          <ExperienceItem 
+            key={index} 
+            index={index} 
+            compact={true} 
+            {...item} 
+          />
         ))}
         
         <div className="pt-8">
-          <Button variant="link" className="group">
-            View full experience <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Button>
+          <Link href="/experience" passHref legacyBehavior>
+            <Button variant="link" className="group" as="a">
+              View full experience <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Button>
+          </Link>
         </div>
       </div>
     </Section>
